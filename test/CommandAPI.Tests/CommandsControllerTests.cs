@@ -107,6 +107,80 @@ namespace CommandAPI.Tests
             Assert.IsType<ActionResult<IEnumerable<Command>>>(result);
         }
 
+        [Fact]
+        public void GetCommandItemReturnsNullResultWhenInvalidID()
+        {
+            // Arrange
+            //DB should be empty. Any ID will be invalid
+
+            // Act
+            var result = controller.GetCommandItem(0);
+
+            // Assert
+            Assert.Null(result.Value);
+        }
+
+        [Fact]
+        public void GetCommandItemReturns404NotFoundWhenInvalidID()
+        {
+            //Arrange
+            //DB should be empty. Any ID will be invalid
+
+            //Act
+
+            var result = controller.GetCommandItem(0);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result.Result);
+        }
+
+        [Fact]
+        public void GetCommandItemReturnsTheCorrectType()
+        {
+            //Arrange
+            var command = new Command
+            {
+                HowTo = "Do Something",
+                Platform = "Some Platform",
+                CommandLine = "Some Command"
+            };
+
+            dbContext.CommandItems.Add(command);
+            dbContext.SaveChanges();
+
+            var cmdId = command.Id;
+
+            //Act
+            var result = controller.GetCommandItem(cmdId);
+
+            //Assert
+            Assert.IsType<ActionResult<Command>>(result);
+        }
+
+        [Fact]
+        public void GetCommandItemReturnsTheCorrectResource()
+        {
+            //Arrange
+            var command = new Command
+            {
+                HowTo = "Do Something",
+                Platform = "Some Platform",
+                CommandLine = "Some Command"
+            };
+
+            dbContext.CommandItems.Add(command);
+            dbContext.SaveChanges();
+
+            var cmdId = command.Id;
+
+            //Act
+            var result = controller.GetCommandItem(cmdId);
+
+            //Assert
+            Assert.Equal(cmdId, result.Value.Id);
+
+        }
+
 
 
     }
