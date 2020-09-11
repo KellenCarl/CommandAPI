@@ -24,6 +24,7 @@ namespace CommandAPI.Controllers
         }
 
         //GET: api/commands/{Id}
+        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<Command> GetCommandItem(int id)
         {
@@ -34,6 +35,7 @@ namespace CommandAPI.Controllers
         }
 
         //POST: api/commands
+        [Authorize]
         [HttpPost]
         public ActionResult<Command> PostCommandItem(Command command)
         {
@@ -51,6 +53,7 @@ namespace CommandAPI.Controllers
         }
 
         //PUT   api/commands/{Id}
+        [Authorize]
         [HttpPut("{id}")]
         public ActionResult PutCommandItem(int id, Command command)
         {
@@ -66,6 +69,7 @@ namespace CommandAPI.Controllers
         }
 
         //DELETE    api/commands/{Id}
+        [Authorize]
         public ActionResult<Command> DeleteCommandItem(int id)
         {
             var commandItem = _context.CommandItems.Find(id);
