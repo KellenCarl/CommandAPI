@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CommandAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CommandAPI.Controllers
 {
@@ -14,6 +15,7 @@ namespace CommandAPI.Controllers
         public CommandsController(CommandContext context) => _context = context;
 
         //GET: api/commands
+        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Command>> GetCommandItems()
         {
