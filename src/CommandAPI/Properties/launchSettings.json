@@ -18,7 +18,7 @@
     "CommandAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "cmdapipgsql.southcentralus.azurecontainer.io",
+      "applicationUrl": "https://omegacodesnippets.azurewebsites.net",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
