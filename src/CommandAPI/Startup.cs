@@ -31,11 +31,11 @@ namespace CommandAPI
             builder.Username = Configuration["UserID"];
             builder.Password = Configuration["Password"];  
 
-            services.AddDbContext<CommandContext>(opt => opt.UseNpgsql(builder.ConnectionString));
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(opt => {
-                opt.Audience = Configuration["ResourceId"];
-                opt.Authority = $"{Configuration["Instance"]}{Configuration["TenantId"]}";
+            //services.AddDbContext<CommandContext>(opt => opt.UseNpgsql(builder.ConnectionString));
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //.AddJwtBearer(opt => {
+              //  opt.Audience = Configuration["ResourceId"];
+                //opt.Authority = $"{Configuration["Instance"]}{Configuration["TenantId"]}";
             });
             services.AddControllers();
         }
@@ -51,8 +51,8 @@ namespace CommandAPI
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseAuthentication();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
