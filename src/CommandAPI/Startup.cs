@@ -35,7 +35,7 @@ namespace CommandAPI
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(opt => {
                 opt.Audience = Configuration["ResourceId"];
-                //opt.Authority = $"{Configuration["Instance"]}{Configuration["TenantId"]}";
+                opt.Authority = $"{Configuration["Instance"]}{Configuration["TenantId"]}";
             });
             services.AddControllers();
         }
