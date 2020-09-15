@@ -18,9 +18,9 @@
     "CommandAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://omegacodesnippets.azurewebsites.net/api/Commands/",
+      "applicationUrl": "https://omegacodesnippets.azurewebsites.net/",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     }
   }
