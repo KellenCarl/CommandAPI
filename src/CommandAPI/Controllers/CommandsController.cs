@@ -15,7 +15,6 @@ namespace CommandAPI.Controllers
         public CommandsController(CommandContext context) => _context = context;
 
         //GET: api/commands
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Command>> GetCommandItems()
         {
