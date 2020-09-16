@@ -26,6 +26,7 @@ namespace CommandAPI
         public void ConfigureServices(IServiceCollection services)
         {
             //Section 1
+                      
             var builder = new NpgsqlConnectionStringBuilder();
             builder.ConnectionString = Configuration.GetConnectionString("PostgreSqlConnection");
             builder.Username = Configuration["UserID"];
