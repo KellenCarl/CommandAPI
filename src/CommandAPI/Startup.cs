@@ -25,7 +25,7 @@ namespace CommandAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //Section 1
+            //Assembles Connection String from App settings and User Secrets 
                       
             var builder = new NpgsqlConnectionStringBuilder();
             builder.ConnectionString = Configuration.GetConnectionString("PostgreSqlConnection");
