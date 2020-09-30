@@ -29,8 +29,8 @@ namespace CommandAPI
                       
             var builder = new NpgsqlConnectionStringBuilder();
             builder.ConnectionString = Configuration.GetConnectionString("PostgreSqlConnection");
-          //  builder.Username = Configuration["UserID"];
-          //  builder.Password = Configuration["Password"];  
+            builder.Username = Configuration["UserID"];
+            builder.Password = Configuration["Password"];  
 
             services.AddDbContext<CommandContext>(opt => opt.UseNpgsql(builder.ConnectionString));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
