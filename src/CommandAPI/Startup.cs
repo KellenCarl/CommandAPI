@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using CommandAPI.Models;
 using Npgsql;
-
+using Microsoft.IdentityModel.Logging;
 
 namespace CommandAPI
 {
@@ -20,6 +20,7 @@ namespace CommandAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
+            IdentityModelEventSource.ShowPII = true; //Add this line
             //Assemble Connection String from App settings and User Secrets 
                       
             var builder = new NpgsqlConnectionStringBuilder();
