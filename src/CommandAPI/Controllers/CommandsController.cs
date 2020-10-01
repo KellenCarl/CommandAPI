@@ -34,7 +34,7 @@ namespace CommandAPI.Controllers
         }
 
         //POST: api/commands
-       // [Authorize]
+        [Authorize]
         [HttpPost]
         public ActionResult<Command> PostCommandItem(Command command)
         {
